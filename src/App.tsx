@@ -1,25 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import './App.css'
 
-/*
-import {
+import { 
+  Auth,
   Daily,
   Finder,
   Home,
-  Themes,
-} from "@/pages";
-*/
-
-import { Daily, Home, Finder, Themes } from "./pages";
-
+  Membership,
+  Themes, 
+} from "./pages";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/auth" element={<Auth />} />
       <Route path="/daily" element={<Daily />} />
       <Route path="/finder" element={<Finder />} />
-      <Route path="/membership" element={<Themes />} />
+      <Route path="/membership" element={<Membership />} />
+      <Route path="/themes" element={<Themes />} />
     </Routes>
   )
 }
