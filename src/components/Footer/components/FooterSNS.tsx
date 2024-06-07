@@ -6,7 +6,13 @@ import {
 } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
-const footerSnsList = [
+type snsType = {
+        icon: JSX.Element;
+        src: string;
+    }[]
+
+
+const footerSnsList: snsType = [
     { icon: <FaTwitter />, src: "https://twitter.com/laftel_net"},
     { icon: <FaYoutube />, src: "https://www.youtube.com/channel/UCI7lPoS1I3zOOePX9ph4iAA"},
     { icon: <RiInstagramFill />, src: "https://www.instagram.com/laftel_net/"},
