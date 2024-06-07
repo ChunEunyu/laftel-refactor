@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 
-export function Logo({ color = "white", }) {
+type logoProps = {
+    color: string;
+    width: number;
+    height: number;
+}
+
+export function Logo({ color = "white", width = 72, height = 24 }: logoProps) {
     return(
         <Link to='/'>
             <svg
                 className="cursor-pointer"
                 xmlns='http://www.w3.org/2000/svg'
                 fill={color}
-                width='72'
-                height='24'
+                width={width}
+                height={height}
                 viewBox='0 0 72 24'
             >
                 <path
