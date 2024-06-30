@@ -3,8 +3,6 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
-  createRoutesFromElements,
-  Route,
   RouterProvider,
 } from "react-router-dom";
 import { 
@@ -20,18 +18,20 @@ import Root from "./Root";
 
 const queryClient = new QueryClient(); 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Root />}>
-      <Route path="/" element={<Home />} />
-      <Route path="/auth" element={<Auth />} />
-      <Route path="/daily" element={<Daily />} />
-      <Route path="/finder" element={<Finder />} />
-      <Route path="/membership" element={<Membership />} />
-      <Route path="/themes" element={<Themes />} />
-    </Route>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'auth', element: <Auth /> },
+      { path: 'daily', element: <Daily /> },
+      { path: 'finder', element: <Finder /> },
+      { path: 'membership', element: <Membership /> },
+      { path: 'themes', element: <Themes /> },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
